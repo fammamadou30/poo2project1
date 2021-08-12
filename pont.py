@@ -5,7 +5,7 @@ miniTr=Turtle()
 turtle.color('blue')
 turtle.pensize(4)
 miniTr.color("blue")
-miniTr.pensize(6)
+miniTr.pensize(2)
 turtle.speed("fastest")
 miniTr.speed("fastest")
 def elipse(posx,posy):
@@ -18,7 +18,7 @@ def elipse(posx,posy):
     turtle.circle(195,90)
     turtle.circle(90,45)
     turtle.left(90)
-
+    turtle.hideturtle()
 
 elipse(478,0)
 elipse(150,0)
@@ -30,11 +30,12 @@ def unTriangle(longueurCote):
         turtle.left(360/3)
 
 
-def miniTriangle(longueurCote):
+def miniper(longueur1,longueur2):
     
-    for i in range(3):
-        miniTr.forward(longueurCote)
-        miniTr.left(360/3)
+        miniTr.forward(longueur1)
+        miniTr.left(90)
+        miniTr.forward(longueur2)
+
 miniTr.penup()
 miniTr.sety(0)
 miniTr.setx(-505)
@@ -45,34 +46,38 @@ def insideElipse():
     
     unTriangle(90)
     turtle.forward(90)
-
-    miniTriangle(45)
+    miniTr.forward(45)
+    miniTr.left(90)
+    miniTr.forward(77)
+    miniTr.left(180)
+    miniTr.forward(77)
+    miniTr.left(90)
     miniTr.forward(45)
 
 
-    miniTriangle(45)
-    miniTr.forward(45)
+
 
 
     unTriangle(140)
     turtle.forward(140)
-
-
-    miniTriangle(70)
+    
     miniTr.forward(70)
-
-
-    miniTriangle(70)
+    miniTr.left(90)
+    miniTr.forward(121)
+    miniTr.left(180)
+    miniTr.forward(121)
+    miniTr.left(90)
     miniTr.forward(70)
 
     unTriangle(98)
     turtle.forward(98)
-
-
-    miniTriangle(49)
+    
     miniTr.forward(49)
-
-    miniTriangle(49)
+    miniTr.left(90)
+    miniTr.forward(85)
+    miniTr.left(180)
+    miniTr.forward(85)
+    miniTr.left(90)
     miniTr.forward(49)
 insideElipse()
 insideElipse()
@@ -85,6 +90,9 @@ def unRectangle(posx,posy,longueur, largeur):
     turtle.setx(posx)
     turtle.pendown()
 
+    turtle.color("blue","blue")
+
+    turtle.begin_fill()
 
     turtle.forward(longueur)
     turtle.right(90)
@@ -93,16 +101,24 @@ def unRectangle(posx,posy,longueur, largeur):
     turtle.forward(longueur)
     turtle.right(90)
     turtle.forward(largeur)
-unRectangle(-515 ,0, 50,200)
+    turtle.end_fill()
+
+unRectangle(100 ,0, 100,25)
+
+
 turtle.right(90)
 
-unRectangle(135 ,0, 50,200)
+unRectangle(50 ,-25, 200,25)
+
 turtle.right(90)
 
+unRectangle(-230 ,0,100,25)
 
-unRectangle(-200 ,0, 50,200)
 turtle.right(90)
 
-unRectangle(455 ,0, 50,200)
+unRectangle(-280 ,-25,200,25)
 
+turtle.right(90)
+
+turtle.hideturtle()
 done()
