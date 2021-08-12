@@ -1,4 +1,5 @@
 from turtle import *
+from genieCivilOuvrage2D import *
 
 turtle=Turtle()
 miniTr=Turtle()

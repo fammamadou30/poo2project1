@@ -1,207 +1,64 @@
-from turtle import *
+# Un module contenant des fonctions nous permettant de tracer les figures suivantes:
+#• Un cercle
+#• Un demi - Cercle
+#• Un carré
+#• Un triangle
+#• Un rectangle
+#• Un polygone
+#• Un trapèze
+#• Un losange
+#• Une Ellipse
+from turtle import*
+from math import*
 
-droite=Turtle()
-turtle=Turtle()
-def unCarreG(cote):
-    turtle.forward(cote)
-    turtle.left(90)
-    turtle.forward(cote)
-    turtle.left(90)
-    turtle.forward(cote)
-    turtle.left(90)
-    turtle.forward(cote)
-    turtle.hideturtle()
-    droite.hideturtle()
+# Fonction Python pour dessiner un cercle
+def cercle(rayon):
+    circle(rayon)
 
+# Fonction Python pour dessiner un demi cercle
+def demiCercle(rayon):
+    seth(90)
+    circle(rayon, 180)
 
+def carre(cote):
+    for i in range(4):
+        forward(cote)
+        left(90)
 
-def unCarreD(cote):
-    turtle.forward(cote)
-    turtle.right(90)
-    turtle.forward(cote)
-    turtle.right(90)
-    turtle.forward(cote)
-    turtle.right(90)
-    turtle.forward(cote)
-    turtle.hideturtle()
-    droite.hideturtle()
+def triangle(coteA, coteB, coteC):
+    angleB = degrees(acos(((coteA**2) + (coteB**2) - (coteC**2))/(2*coteA*coteB)))
+    forward(coteA)
+    left(180 - angleB)
+    angleC = degrees(acos(((coteB**2) + (coteC**2) - (coteA**2))/(2*coteB*coteC)))
+    forward(coteB)
+    left(180 - angleC)
+    forward(coteC)
+    angleA = degrees(acos(((coteB**2) + (coteA**2) - (coteC**2))/(2*coteB*coteA)))
+    left(180 - angleA)
 
+def rectangle(longueur, largeur):
+    for i in range(2):
+        forward(longueur)
+        left(90)
+        forward(largeur)
+        left(90)
 
-def unRectangleG(longueur,largeur):
-    turtle.forward(longueur)
-    turtle.left(90)
-    turtle.forward(largeur)
-    turtle.left(90)
-    turtle.forward(longueur)
-    turtle.left(90)
-    turtle.forward(largeur)
-    turtle.hideturtle()
-    droite.hideturtle()
+def polygone(nombreDeCote, longueurCote):
+    for i in range(nombreDeCote):
+        fd(longueurCote)
+        lt(360/longueurCote)       
 
-
-def unRectangleD(longueur,largeur):
-    turtle.forward(longueur)
-    turtle.right(90)
-    turtle.forward(largeur)
-    turtle.right(90)
-    turtle.forward(longueur)
-    turtle.right(90)
-    turtle.forward(largeur)
-    turtle.hideturtle()
-    droite.hideturtle()
-
-def fourCarre(pox,poy):
-# 4 carres
-    turtle.penup()
-    turtle.sety(poy)
-    turtle.setx(pox)
-    turtle.pendown()
-    turtle.color('black', 'white')
-    turtle.begin_fill()
-    
-    unCarreG(50)
-    droite.right(180)
-    unCarreD(50)
-
-    droite.right(90)
-    turtle.right(90)
-
-    unCarreG(50)
-    unCarreD(50)
-    turtle.end_fill()
-    turtle.hideturtle()
-    droite.hideturtle()
-# droite=Turtle()
-# turtle=Turtle()
-# fin 4 carres
-
-def fourRectangle(pox,poy):
-#  debut 4 rectangle
-    turtle.penup()
-    turtle.sety(poy)
-    turtle.setx(pox)
-    turtle.pendown()
-    turtle.left(90)
-    turtle.color('black', 'white')
-    turtle.begin_fill()
-    unRectangleG(100, 50)
-    turtle.right(90)
-    unRectangleD(100, 50)
-
-    turtle.right(90)
-
-    unRectangleG(100, 50)
-    turtle.right(90)
-    unRectangleD(100, 50)
-    turtle.end_fill()
-    turtle.hideturtle()
-    droite.hideturtle()
+def trapeze(grandeBase, petiteBase, cote):
+    forward(petiteBase)
+    forward(cote)
+    left(130)
+    forward(grandeBase)
+    left(130)
+    forward(cote)
 
 
-def miniFourRectangle(pox,poy):
-#  debut 4 rectangle
-    turtle.penup()
-    turtle.sety(poy)
-    turtle.setx(pox)
-    turtle.pendown()
-    turtle.left(90)
-    turtle.color('black', 'white')
-    turtle.begin_fill()
-    unRectangleG(50, 25)
-    turtle.right(90)
-    unRectangleD(50, 25)
-
-    turtle.right(90)
-
-    unRectangleG(50, 25)
-    turtle.right(90)
-    unRectangleD(50, 25)
-    turtle.end_fill()
-    turtle.hideturtle()
-    droite.hideturtle()
-
-
-def deuxRectangle(pox,poy):
-#  debut 4 rectangle
-    turtle.penup()
-    turtle.sety(poy)
-    turtle.setx(pox)
-    turtle.pendown()
-    turtle.left(90)
-    turtle.color('black', 'white')
-    turtle.begin_fill()
-    unRectangleG(50, 25)
-    turtle.right(90)
-    # unRectangleD(50, 25)
-
-    turtle.right(90)
-
-    # unRectangleG(50, 25)
-    turtle.right(90)
-    unRectangleD(50, 25)
-    turtle.end_fill()
-
-    turtle.hideturtle()
-    droite.hideturtle()
-
-
-
-#   fin 4 rectangle
-def englobeFourCarreAndFourRectangle(posx,posy):
-    turtle.penup()
-    turtle.sety(posy)
-    turtle.setx(posx)
-    turtle.pendown()
-    turtle.right(90)
-    turtle.color('black', 'grey')
-    turtle.begin_fill()
-
-    unRectangleD(370, 120)
-    turtle.end_fill()
-    turtle.hideturtle()
-    droite.hideturtle()
-
-def RectangleVide(posx,posy,longueur,largeur):
-    turtle.penup()
-    turtle.sety(posy)
-    turtle.setx(posx)
-    turtle.pendown()
-    turtle.right(90)
-    unRectangleD(longueur, largeur)
-    turtle.hideturtle()
-    droite.hideturtle()
-
-    
-def RectangleNonVide(posx,posy,longueur,largeur):
-    turtle.penup()
-    turtle.sety(posy)
-    turtle.setx(posx)
-    turtle.pendown()
-    turtle.right(90)
-    turtle.color('black', '#A6A6A6')
-    turtle.begin_fill()
-    unRectangleD(longueur, largeur)
-    turtle.end_fill()
-    turtle.hideturtle()
-    droite.hideturtle()
-def unDemiCercle(posx,posy,rayon):
-    droite.penup()
-    droite.sety(posy)
-    droite.setx(posx)
-    droite.pendown()
-    droite.color('black', 'white')
-    droite.begin_fill()
-    droite.circle(rayon, 180)
-    droite.end_fill()
-    turtle.hideturtle()
-    droite.hideturtle()
-def pointCentrale(posx,posy):
-    droite.penup()
-    droite.sety(posy)
-    droite.setx(posx)
-    droite.pendown()
-    droite.dot(25)
-    turtle.hideturtle()
-    droite.hideturtle()
-    
-  
+def ellispe(rayon):
+    seth(-45)
+    for i in range(2):
+        circle(rayon, 90)
+        circle(rayon/3, 90)
