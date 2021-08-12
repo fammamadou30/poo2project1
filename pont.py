@@ -55,7 +55,12 @@ def insideElipse():
     miniTr.left(90)
     miniTr.forward(45)
 
-
+    miniTr.left(90)
+    miniTr.forward(105)
+    miniTr.left(180)
+    miniTr.forward(105)
+    miniTr.left(90)
+ 
 
 
 
@@ -69,6 +74,13 @@ def insideElipse():
     miniTr.forward(121)
     miniTr.left(90)
     miniTr.forward(70)
+
+    miniTr.left(90)
+    miniTr.forward(110)
+    miniTr.left(180)
+    miniTr.forward(110)
+    miniTr.left(90)
+
 
     unTriangle(98)
     turtle.forward(98)
